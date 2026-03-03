@@ -16,4 +16,3 @@ BNode* GetRightSubTree(BNode* node);
 
 void MakeLeftSubTree(BNode* main, BNode* sub);
 void MakeRightSubTree(BNode* main, BNode* sub);
-
