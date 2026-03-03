@@ -16,3 +16,7 @@ BNode* GetRightSubTree(BNode* node);
 
 void MakeLeftSubTree(BNode* main, BNode* sub);
 void MakeRightSubTree(BNode* main, BNode* sub);
+
+void InorderTraverse(BNode* node);
+void PreorderTraverse(BNode* node);
+void PostorderTraverse(BNode* node);

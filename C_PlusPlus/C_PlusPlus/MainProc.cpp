@@ -24,5 +24,17 @@ int main()
 	cout << "Node1의 왼쪽 자식 노드의 왼쪽 자식 노드의 데이터 : "
 		<< GetNodeData(GetLeftSubTree(GetLeftSubTree(node1))) << endl;
 
+	cout << "중위 순회 결과" << endl;
+	InorderTraverse(node1);
+	cout << endl;
+
+	cout << "전위 순회 결과" << endl;
+	PreorderTraverse(node1);
+	cout << endl;
+
+	cout << "후위 순회 결과" << endl;
+	PostorderTraverse(node1);
+	cout << endl;
+
 	return 0;
 }

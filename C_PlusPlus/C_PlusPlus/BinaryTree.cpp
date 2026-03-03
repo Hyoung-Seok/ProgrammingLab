@@ -1,4 +1,6 @@
-#include "BinaryTree.h"
+﻿#include "BinaryTree.h"
+#include <iostream>
+using namespace std;
 
 BData GetNodeData(BNode* node)
 {
@@ -44,4 +46,38 @@ void MakeRightSubTree(BNode* main, BNode* sub)
 		delete main->right;
 
 	main->right = sub;
+}
+
+void InorderTraverse(BNode* node)
+{
+	if (node == nullptr)
+		return;
+
+	// 왼쪽 서브트리 부터 탐색
+	InorderTraverse(node->left);
+
+	cout << "node : " << node->data << endl;
+
+	// 오른쪽 서브트리 탐색
+	InorderTraverse(node->right);
+}
+
+void PreorderTraverse(BNode* node)
+{
+	if (node == nullptr)
+		return;
+
+	cout << "node : " << node->data << endl;
+	PreorderTraverse(node->left);
+	PreorderTraverse(node->right);
+}
+
+void PostorderTraverse(BNode* node)
+{
+	if (node == nullptr)
+		return;
+
+	PostorderTraverse(node->left);
+	PostorderTraverse(node->right);
+	cout << "node : " << node->data << endl;
 }
