@@ -2,6 +2,8 @@
 #include "BinaryTree.h"
 using namespace std;
 
+void PrintNodeData(BNode* node);
+
 int main()
 {
 	auto node1 = new BNode;
@@ -18,23 +20,14 @@ int main()
 	MakeRightSubTree(node1, node3); // node1의 오른쪽 서브 트리는 node3
 	MakeLeftSubTree(node2, node4); // node2의 왼쪽 서브 트리는 node4
 
-	cout << "Node1의 왼쪽 자식 노드 데이터 : " 
-		<< GetNodeData(GetLeftSubTree(node1)) << endl;
-
-	cout << "Node1의 왼쪽 자식 노드의 왼쪽 자식 노드의 데이터 : "
-		<< GetNodeData(GetLeftSubTree(GetLeftSubTree(node1))) << endl;
-
 	cout << "중위 순회 결과" << endl;
-	InorderTraverse(node1);
-	cout << endl;
-
-	cout << "전위 순회 결과" << endl;
-	PreorderTraverse(node1);
-	cout << endl;
-
-	cout << "후위 순회 결과" << endl;
-	PostorderTraverse(node1);
+	InorderTraverse(node1, PrintNodeData);
 	cout << endl;
 
 	return 0;
+}
+
+void PrintNodeData(BNode* node)
+{
+	cout << "Data : " << GetNodeData(node) << endl;
 }

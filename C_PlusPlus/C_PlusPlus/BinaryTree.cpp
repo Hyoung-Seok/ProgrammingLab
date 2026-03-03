@@ -48,18 +48,18 @@ void MakeRightSubTree(BNode* main, BNode* sub)
 	main->right = sub;
 }
 
-void InorderTraverse(BNode* node)
+void InorderTraverse(BNode* node, void (*visit)(BNode*))
 {
 	if (node == nullptr)
 		return;
 
 	// 왼쪽 서브트리 부터 탐색
-	InorderTraverse(node->left);
+	InorderTraverse(node->left, visit);
 
-	cout << "node : " << node->data << endl;
+	visit(node);
 
 	// 오른쪽 서브트리 탐색
-	InorderTraverse(node->right);
+	InorderTraverse(node->right, visit);
 }
 
 void PreorderTraverse(BNode* node)
