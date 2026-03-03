@@ -8,7 +8,6 @@ struct BNode
 	BNode* right = nullptr;
 };
 
-BNode* CreateBNode();
 BData GetNodeData(BNode* node);
 void SetNodeData(BNode* node, BData data);
 
