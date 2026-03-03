@@ -19,4 +19,4 @@ void MakeRightSubTree(BNode* main, BNode* sub);
 
 void InorderTraverse(BNode* node, void (*visit)(BNode*));
 void PreorderTraverse(BNode* node);
-void PostorderTraverse(BNode* node);
+void PostorderTraverse(BNode* node, void (*visit)(BNode*));

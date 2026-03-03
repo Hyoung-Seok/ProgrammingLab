@@ -32,7 +32,10 @@ void MakeLeftSubTree(BNode* main, BNode* sub)
 		return;
 
 	if (main->left != nullptr)
-		delete main->left;
+	{
+		PostorderTraverse(main->left, [](BNode* node) { delete node; });
+		main->left = nullptr;
+	}
 
 	main->left = sub;
 }
@@ -43,8 +46,11 @@ void MakeRightSubTree(BNode* main, BNode* sub)
 		return;
 
 	if (main->right != nullptr)
-		delete main->right;
-
+	{
+		PostorderTraverse(main->right, [](BNode* node) { delete node; });
+		main->right = nullptr;
+	}
+	
 	main->right = sub;
 }
 
@@ -72,12 +78,12 @@ void PreorderTraverse(BNode* node)
 	PreorderTraverse(node->right);
 }
 
-void PostorderTraverse(BNode* node)
+void PostorderTraverse(BNode* node, void (*visit)(BNode*))
 {
 	if (node == nullptr)
 		return;
 
-	PostorderTraverse(node->left);
-	PostorderTraverse(node->right);
-	cout << "node : " << node->data << endl;
+	PostorderTraverse(node->left, visit);
+	PostorderTraverse(node->right, visit);
+	visit(node);
 }

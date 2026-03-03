@@ -24,6 +24,15 @@ int main()
 	InorderTraverse(node1, PrintNodeData);
 	cout << endl;
 
+	// 노드 1의 왼쪽 자식 교체
+	auto node5 = new BNode;
+	SetNodeData(node5, 5);
+	MakeLeftSubTree(node1, node5);
+
+	cout << "중위 순회 결과" << endl;
+	InorderTraverse(node1, PrintNodeData);
+	cout << endl;
+
 	return 0;
 }
 
